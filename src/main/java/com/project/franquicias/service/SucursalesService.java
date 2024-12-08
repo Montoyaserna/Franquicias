@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.project.franquicias.entity.FranquiciaEntity;
 import com.project.franquicias.entity.SucursalEntity;
 import com.project.franquicias.payload.response.ResponseGeneric;
 import com.project.franquicias.repository.SucursalesRepository;
@@ -49,6 +48,22 @@ public class SucursalesService {
 		} catch (Exception e) {
 			System.out.println("ERROR: " + e);
 			return ResponseEntity.ok(new ResponseGeneric("2", "Error al Insertar"));
+		}
+	}
+	
+	public ResponseEntity<?> updateSucursal(SucursalEntity sucursalEntity) {
+		try {
+			SucursalEntity sucursalUpd = sucursalesRepository.findByIdSucursal(sucursalEntity.getIdSucursal());
+			
+			sucursalUpd.setNombreSucursal(sucursalEntity.getNombreSucursal());
+			
+			sucursalesRepository.save(sucursalUpd);
+			
+			return ResponseEntity.ok(new ResponseGeneric("0", "Se Actualizo la Sucursal Exitosamente"));
+			
+		} catch (Exception e) {
+			System.out.println("ERROR: " + e);
+			return ResponseEntity.ok(new ResponseGeneric("2", "Error al Actualizar"));
 		}
 	}
 	
