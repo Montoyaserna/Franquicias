@@ -23,7 +23,7 @@ public class SucursalEntity {
     private Long idSucursal;
 	
 	@Column(name = "nombre_sucursal", nullable = false)
-    private String nombreFranquicia;
+    private String nombreSucursal;
 	
 	@Column(name = "id_franquicia", nullable = false)
     private Long idFranquicia;
