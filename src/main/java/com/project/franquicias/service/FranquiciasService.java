@@ -38,5 +38,17 @@ public class FranquiciasService {
 			return ResponseEntity.ok(new ResponseGeneric("2", "Error al consultar"));
 		}
 	}
+	
+	public ResponseEntity<?> insertFranquicia(FranquiciaEntity franquicia) {
+		try {
+			franquiciasRepository.save(franquicia);
+			
+			return ResponseEntity.ok(new ResponseGeneric("0", "Se Creo la Franquicia Exitosamente"));
+			
+		} catch (Exception e) {
+			System.out.println("ERROR: " + e);
+			return ResponseEntity.ok(new ResponseGeneric("2", "Error al Insertar"));
+		}
+	}
 
 }
