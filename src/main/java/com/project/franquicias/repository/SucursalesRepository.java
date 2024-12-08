@@ -9,5 +9,6 @@ import com.project.franquicias.entity.SucursalEntity;
 public interface SucursalesRepository extends JpaRepository<SucursalEntity, Long>{
 	
 	List<SucursalEntity> findByIdFranquicia(Long idFranquicia);
+	
 
 }

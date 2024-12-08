@@ -38,5 +38,6 @@ public class SucursalesService {
 			return ResponseEntity.ok(new ResponseGeneric("2", "Error al consultar"));
 		}
 	}
+	
 
 }

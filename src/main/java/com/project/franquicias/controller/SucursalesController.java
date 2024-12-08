@@ -24,5 +24,6 @@ public class SucursalesController {
 		return sucursalesService.selectAllSucursales(idFranquicia);
 
 	}
+	
 
 }
