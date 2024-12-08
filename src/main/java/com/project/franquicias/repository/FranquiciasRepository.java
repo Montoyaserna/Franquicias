@@ -8,5 +8,6 @@ import com.project.franquicias.entity.FranquiciaEntity;
 public interface FranquiciasRepository extends JpaRepository<FranquiciaEntity, Long>{
 	
 	List<FranquiciaEntity> findAll();
+	FranquiciaEntity findByIdFranquicia(Long idFranquicia);
 
 }

@@ -50,5 +50,21 @@ public class FranquiciasService {
 			return ResponseEntity.ok(new ResponseGeneric("2", "Error al Insertar"));
 		}
 	}
+	
+	public ResponseEntity<?> updateFranquicia(FranquiciaEntity franquicia) {
+		try {
+			FranquiciaEntity franquiciaUpd = franquiciasRepository.findByIdFranquicia(franquicia.getIdFranquicia());
+			
+			franquiciaUpd.setNombreFranquicia(franquicia.getNombreFranquicia());
+			
+			franquiciasRepository.save(franquiciaUpd);
+			
+			return ResponseEntity.ok(new ResponseGeneric("0", "Se Actualizo la Franquicia Exitosamente"));
+			
+		} catch (Exception e) {
+			System.out.println("ERROR: " + e);
+			return ResponseEntity.ok(new ResponseGeneric("2", "Error al Actualizar"));
+		}
+	}
 
 }
