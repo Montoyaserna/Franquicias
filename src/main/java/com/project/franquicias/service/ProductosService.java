@@ -39,4 +39,16 @@ public class ProductosService {
 		}
 	}
 	
+	public ResponseEntity<?> insertProducto(ProductoEntity productoEntity) {
+		try {
+			productosRepository.save(productoEntity);
+			
+			return ResponseEntity.ok(new ResponseGeneric("0", "Se Creo el Producto Exitosamente"));
+			
+		} catch (Exception e) {
+			System.out.println("ERROR: " + e);
+			return ResponseEntity.ok(new ResponseGeneric("2", "Error al Insertar"));
+		}
+	}
+	
 }
