@@ -51,4 +51,20 @@ public class ProductosService {
 		}
 	}
 	
+	public ResponseEntity<?> updateProducto(ProductoEntity productoEntity) {
+		try {
+			ProductoEntity productoUpd = productosRepository.findByIdProducto(productoEntity.getIdProducto());
+			
+			productoUpd.setNombreProducto(productoEntity.getNombreProducto());
+			
+			productosRepository.save(productoUpd);
+			
+			return ResponseEntity.ok(new ResponseGeneric("0", "Se Actualizo el Producto Exitosamente"));
+			
+		} catch (Exception e) {
+			System.out.println("ERROR: " + e);
+			return ResponseEntity.ok(new ResponseGeneric("2", "Error al Actualizar"));
+		}
+	}
+	
 }
