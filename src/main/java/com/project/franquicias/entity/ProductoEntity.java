@@ -25,6 +25,9 @@ public class ProductoEntity {
 	@Column(name = "nombre_producto", nullable = false)
     private String nombreProducto;
 	
+	@Column(name = "stock", nullable = false)
+    private Long cantStock;
+	
 	@Column(name = "id_sucursal", nullable = false)
     private Long idSucursal;
 

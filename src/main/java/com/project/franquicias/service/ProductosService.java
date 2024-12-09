@@ -56,6 +56,7 @@ public class ProductosService {
 			ProductoEntity productoUpd = productosRepository.findByIdProducto(productoEntity.getIdProducto());
 			
 			productoUpd.setNombreProducto(productoEntity.getNombreProducto());
+			productoUpd.setCantStock(productoEntity.getCantStock());
 			
 			productosRepository.save(productoUpd);
 			
