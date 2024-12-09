@@ -67,4 +67,18 @@ public class ProductosService {
 		}
 	}
 	
+	public ResponseEntity<?> deleteProducto(Long idProducto) {
+		try {
+			ProductoEntity productoDel = productosRepository.findByIdProducto(idProducto);
+			
+			productosRepository.delete(productoDel);
+			
+			return ResponseEntity.ok(new ResponseGeneric("0", "Se Elimino el Producto Exitosamente"));
+			
+		} catch (Exception e) {
+			System.out.println("ERROR: " + e);
+			return ResponseEntity.ok(new ResponseGeneric("2", "Error al Eliminar"));
+		}
+	}
+	
 }
